@@ -1,0 +1,22 @@
+To install python packages not installed on computecanada already, follow the instructions in the Python
+computecanada wiki page.
+
+When you install packages, they get cached and are visible to pip on the login
+node, but don't seem to be visible on the compute nodes.
+So, pip seems to try to connect to the internet, but does not seem to be able
+to do it and spends a lot of time trying.
+
+Saving the cached wheels locally and pointing to these wheels in the
+pip install -r "requirements" file, makes it work much much faster.
+
+To get the cached wheels, follow these steps:
+1. create virtualenv and activate
+2. update pip
+3. install from requirements files (steps 1-3 done before as in Python
+computecanda wiki)
+4. Do:
+pip wheel -r <<requirements_file.txt>> -wheel_dir <<local_wheel_dir>>
+All the wheels in the requirements file will be saved in the <<local_wheel_dir>>
+
+5. Update the requirements file pointing to these wheels instead and test
+pip install using the new requirements file.
