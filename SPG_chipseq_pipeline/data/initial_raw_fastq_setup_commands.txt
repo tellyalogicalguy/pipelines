@@ -1,0 +1,13 @@
+After folders are set up and files were transferred with rsync:
+
+------------------------------------------------------------------------------
+!!!MODIFY "data_info.txt" IN "data" folder to refelct file and sample names!!!
+------------------------------------------------------------------------------
+
+Go to the scratch "raw_fastq" folder, run:
+for file in $(ls *.gz); do md5sum $file >> md5sums.txt; done
+to do md5 checksums.
+
+Go to the home "raw_fastq" folder, ran:
+ln -s ~/scratch/binf_analyses_data/"??PREFIX??"/"??FACTOR??"/"??scratch_data_folder??/raw_fastq/* .
+

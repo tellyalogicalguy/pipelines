@@ -1,0 +1,2 @@
+MACS2==2.2.7.1+computecanada
+numpy==1.23.0+computecanada
